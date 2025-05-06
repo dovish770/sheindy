@@ -1,14 +1,15 @@
 import { useState } from 'react';
 import './Navbar.scss';
 import { BRACELETS, EARRINGS, NECKLACES, RINGS } from '../../constans/constans';
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
 
     return (
         <nav className="navbar">
-           <div className={`menu ${isOpen ? 'open' : ''}`}>
+            <div className={`menu ${isOpen ? 'open' : ''}`}>
                 <button
                     className={`hamburger ${isOpen ? 'open' : ''}`}
                     onClick={() => setIsOpen(!isOpen)}
@@ -20,24 +21,24 @@ const Navbar = () => {
                 </button>
 
                 <div className={`categories ${isOpen ? 'open' : ''}`}>
-                    <ul className="category">{EARRINGS}</ul>
-                    <ul className="category">{BRACELETS}</ul>
-                    <ul className="category">{NECKLACES}</ul>
-                    <ul className="category">{RINGS}</ul>
+                    <Link to="/categories/earrings" className="category" onClick={() => setIsOpen(false)}>{EARRINGS}</Link>
+                    <Link to="/categories/bracelets" className="category" onClick={() => setIsOpen(false)}>{BRACELETS}</Link>
+                    <Link to="/categories/necklaces" className="category" onClick={() => setIsOpen(false)}>{NECKLACES}</Link>
+                    <Link to="/categories/rings" className="category" onClick={() => setIsOpen(false)}>{RINGS}</Link>
                 </div>
             </div>
 
-            <div className="logo">
-                <img src="../.././public/sheind-logo.png" alt="" />
-            </div>
-            
+            <Link to='/' className="logo" onClick={() => setIsOpen(false)}>
+                <img src="/sheind-logo.png" alt="shein-D" />
+            </Link>
+
             <div className="icons">
                 <div className="cartIcon">
-                    <ShoppingCartIcon/>
+                    <ShoppingCartOutlinedIcon />
                     <span>0</span>
                 </div>
             </div>
-            
+
         </nav>
     );
 };

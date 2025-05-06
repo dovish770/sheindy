@@ -2,12 +2,11 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 10px 10px 10px 20px;
-    background-color: rgb(238, 218, 129);
-    width: 100%;
+    padding: 10px 29px 10px 20px;
+    background-color: rgb(221, 195, 79);
     position: relative;
     height: 40px;
-    border-radius: 5px;
+    border-radius: 3px;
 
     .menu {
         display: flex;
@@ -51,31 +50,44 @@
         .categories {
             display: flex;
             flex: 1;
-            width: 300px;
             align-items: center;
             justify-content: space-between;
+            gap: 25px;
         }
 
         .category {
             font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-            color: #6e6e6e;
+            color: #817f7f;
             cursor: pointer;
             transition: color 0.3s ease;
-            box-sizing: border-box;
-            border-left: 1px solid #696969;
-            padding-left: 13px;
-            
-            &:first-child {
-                border-left: none;
-            }
+            text-decoration: none;
 
             &:hover {
                 color: #000;
             }
         }
+    }
 
-        @media (max-width: 768px) {
+    .logo {
+        height: 100%;
+
+        img {
+            height: 100%;
+            cursor: pointer;
+        }
+    }
+
+    .cartIcon {
+        cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+        justify-content: end;
+        gap: 100px;
+
+        .menu {
             top: 10px;
+            left: 10px;
             position: absolute;
             max-width: 200px;
             padding: 15px 10px 0 10px;
@@ -95,7 +107,8 @@
             .categories {
                 display: none;
                 flex-direction: column;
-                margin-top: 10px;
+                margin: 20px 5px 10px 10px;
+                padding-left: 20px;
             }
 
             .categories.open {
@@ -118,13 +131,6 @@
                     border-bottom: none;
                 }
             }
-        }
-    }
-
-    .logo {
-        height: 100%;
-        img {
-            height: 100%;
         }
     }
 }
